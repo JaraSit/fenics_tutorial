@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: markdown
 - file: notebooks
+- file: fenicsx_1D_tension
