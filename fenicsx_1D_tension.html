@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cork stopper - ‘Hello World!’ &#8212; FEniCSX book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Content with notebooks" href="notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">FEniCSX book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome FEniCS tutorial book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Cork stopper - ‘Hello World!’
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/fenicsx_1D_tension.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffenicsx_1D_tension.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/fenicsx_1D_tension.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-formulation-of-the-problem">
+   General formulation of the problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#governing-equations">
+     Governing equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometric-derivation">
+       Geometric derivation*
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-parameters">
+     Problem parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry-of-the-problem">
+     Geometry of the problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-spaces-definition">
+     Function spaces definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boundary-conditions">
+     Boundary conditions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dirichlet-boundary-conditions">
+       Dirichlet boundary conditions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#neumann-boundary-conditions">
+       Neumann boundary conditions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weak-formulation">
+     Weak formulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#post-processing">
+   Post processing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="cork-stopper-hello-world">
+<h1>Cork stopper - ‘Hello World!’<a class="headerlink" href="#cork-stopper-hello-world" title="Permalink to this headline">¶</a></h1>
+<p><img alt="caption" src="fig/cork_stopper.png" /></p>
+<div class="section" id="general-formulation-of-the-problem">
+<h2>General formulation of the problem<a class="headerlink" href="#general-formulation-of-the-problem" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Let us consider a beam <span class="math notranslate nohighlight">\(\Omega\)</span> with a rectangular cross-section that is constant along the centerline of the beam, which coincides with the <span class="math notranslate nohighlight">\(x\)</span>-axis.<br />
+The beam is loaded with the volumetric force density <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> acting only in the direction of the <span class="math notranslate nohighlight">\(x\)</span>-axis. This results in extension or compression of the beam. Additionally, the right end, denoted <span class="math notranslate nohighlight">\(\Gamma_{\text{N}}\)</span>, is loaded with the constant surface force density <span class="math notranslate nohighlight">\(\mathbf{g}\)</span>. The beam is fixed at the left end denoted by <span class="math notranslate nohighlight">\(\Gamma_{\text{D}}\)</span>.</p>
+<div class="section" id="governing-equations">
+<h3>Governing equations<a class="headerlink" href="#governing-equations" title="Permalink to this headline">¶</a></h3>
+<p>The problem for displacement <span class="math notranslate nohighlight">\(\mathbf{u}:\Omega \to \mathbb{R}^3\)</span> of isotropic solid at small strains reads<a id='governing_eqns'></a>
+\begin{align*}
+-\text{div} \boldsymbol{\sigma} &amp;= \mathbf{b} &amp;&amp; \text{in } \Omega, \
+\boldsymbol{\sigma} \cdot \mathbf{n} &amp;= \mathbf{g} &amp;&amp; \text{on } \Gamma_{\text{N}}, \
+\mathbf{u} &amp;= \bar{\mathbf{u}} &amp;&amp; \text{on } \Gamma_{\text{D}},
+\end{align*}
+where
+\begin{align*}
+\boldsymbol{\sigma} = \lambda (\text{tr} \varepsilon(\mathbf{u})) \mathbf{I} + 2\mu \varepsilon(\mathbf{u})
+\end{align*}
+is the Cauchy stress tensor (with <span class="math notranslate nohighlight">\(\varepsilon(\mathbf{u})\)</span> being the symmetric gradient of <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbb{I}\)</span> the identity tensor, and <span class="math notranslate nohighlight">\(\lambda\)</span> with <span class="math notranslate nohighlight">\(\mu\)</span> the Lamé parameters),
+<span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is the volumetric force density,
+<span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is the normal traction on the Neumann part of the boundary of <span class="math notranslate nohighlight">\(\Omega\)</span>,
+and <span class="math notranslate nohighlight">\(\mathbf{u}_D\)</span> is the prescribed displacement at the Dirichlet part of <span class="math notranslate nohighlight">\(\partial \Omega\)</span>.
+When reducing the problem for an axial dilatation and a radial compression we suppose
+\begin{align*}
+\mathbf{u}
+=
+\begin{pmatrix}
+u_x (x) \
+u_y(y,z) \
+u_z(y,z)
+\end{pmatrix},
+\quad
+\mathbf{b}
+=
+\begin{pmatrix}
+b_x(x) \
+0 \
+0
+\end{pmatrix},
+\quad
+\mathbf{g}
+=
+\begin{pmatrix}
+g_x \
+0 \
+0
+\end{pmatrix},
+\end{align*}
+and that <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is zero on the walls and points in the axial direction at both ends.
+The system then partially separates; the equation for the component <span class="math notranslate nohighlight">\(u_x\)</span> becomes independent.
+Its solutions than enters the equations for <span class="math notranslate nohighlight">\(u_y\)</span> and <span class="math notranslate nohighlight">\(u_z\)</span> via the traction on the boundary
+(here the Poisson’s ratio comes into play); however, we are interested in finding solely <span class="math notranslate nohighlight">\(u_x\)</span>.
+When we integrate its equation over the cross-section with the area <span class="math notranslate nohighlight">\(A\)</span>, we obtain
+\begin{align*}
+-A (\lambda + 2\mu)(u_x)’’ = A b_x.
+\end{align*}
+Since we want to describe the material properties rather with Young modulus <span class="math notranslate nohighlight">\(E\)</span> and Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\)</span>,
+we substitute
+\begin{align*}
+\lambda + 2\mu = \frac{E(1-\nu)}{(1+\nu)(1-2\nu)}.
+\end{align*}
+When supposing <span class="math notranslate nohighlight">\(\nu = 0\)</span>,
+we end up with the reduced problem for <span class="math notranslate nohighlight">\(u:=u_x\)</span>
+\begin{align*}
+-A E u’’ &amp;= b \text{ in } (0,L), \
+u(0) &amp;= 0, \
+AEu’(L) &amp;= g,
+\end{align*}
+where <span class="math notranslate nohighlight">\(b(x) = Ab_x(x)\)</span> and <span class="math notranslate nohighlight">\(g = Ag_x\)</span>.
+Weak formulation<a id='weak_form'></a> is
+\begin{align*}
+u \in V: \int_0^L A E u’(x) \delta u’(x), \text{d} x = \int_0^L b(x)\delta u(x), \text{d} x + g \delta u(L), \quad \forall \delta u \in V,,
+\end{align*}
+where <a id='function_space'></a><span class="math notranslate nohighlight">\(V = \{ v \in H^1(0,L); v(0) = 0\}\)</span><a class="reference external" href="#fn1"><sup>1</sup></a>.
+Note that <span class="math notranslate nohighlight">\(H^1(0,L) \subset AC[0,L]\)</span><a class="reference external" href="#fn2"><sup>2</sup></a>, thus <span class="math notranslate nohighlight">\(\varphi\)</span> is defined pointwise. Sometimes it is convenient to rewrite the previous variational formulation in the form
+\begin{align*}
+u \in V: a(u,\delta u) = L(\delta u), \quad \forall \delta u \in V,,
+\end{align*}
+where <span class="math notranslate nohighlight">\(a(u,\delta u) = \int_0^L A E u'(x) \delta u'(x)\, \text{d} x\)</span> denotes a bilinear form given by the left-hand side of the formulation and <span class="math notranslate nohighlight">\(L(\delta u) = \int_0^L b(x)\delta u(x)\, \text{d} x + g \delta u(L)\)</span> is a linear functional that contains the external loading of the problem.</p>
+<p><span id='fn1'><sup>1</sup>See the <a class="reference external" href="https://en.wikipedia.org/wiki/Sobolev_space#One-dimensional_case">definition</a> of the Sobolev space <span class="math notranslate nohighlight">\(H^1\)</span>.</span><br />
+<span id="fn2"><sup>2</sup><span class="math notranslate nohighlight">\(AC[0,L]\)</span> denotes the absolutely continuous functions on <span class="math notranslate nohighlight">\([0,L]\)</span>, see the <a class="reference external" href="https://en.wikipedia.org/wiki/Absolute_continuity#Definition">definition</a>.</span></p>
+<hr class="docutils" />
+<div class="section" id="geometric-derivation">
+<h4>Geometric derivation*<a class="headerlink" href="#geometric-derivation" title="Permalink to this headline">¶</a></h4>
+<p>Displacement of the bar cross-section located at <span class="math notranslate nohighlight">\(x\)</span> is given by <span class="math notranslate nohighlight">\(\mathbf{u}(x)\)</span>. If we cut an element <span class="math notranslate nohighlight">\([x,x+\Delta x]\)</span> of the bar then the left cross section is displaced by <span class="math notranslate nohighlight">\(u(x)=u_x(x)\)</span> in the <span class="math notranslate nohighlight">\(x\)</span> direction, and the right one is displaced by <span class="math notranslate nohighlight">\(u(x+\Delta x)\)</span>, therefore the strain, or the relative deformation, of the element is
+\begin{equation}
+\frac{\Delta u}{\Delta x}=\frac{u(x+\Delta x)-u(x)}{\Delta x},.<br />
+\end{equation}
+Thus, for an infinitesimal element, the deformation at <span class="math notranslate nohighlight">\(x\)</span> is given by
+\begin{equation}
+\varepsilon(x)=\lim_{\Delta x \rightarrow 0} \frac{\Delta u}{\Delta x}=\lim_{\Delta x \rightarrow 0}\frac{u(x+\Delta x)-u(x)}{\Delta x} = u’(x),.<br />
+\end{equation}
+Using 1D stress-strain constitutive relation, i.e. Hooke’s law, we get
+\begin{equation}
+\sigma(x) = E(x) \varepsilon(x) =E(x) u’(x),,
+\end{equation}
+where <span class="math notranslate nohighlight">\(\sigma\)</span> now represents only the <span class="math notranslate nohighlight">\(xx\)</span> compononet of the stress tensor <span class="math notranslate nohighlight">\(\boldsymbol{\sigma}\)</span>.</p>
+<p>From static equilibrium of an infinitesimal element, see the previous figure, we get the following force balance
+\begin{equation}
+-\sigma(x)A(x) + f(x+\mathrm{d}x/2) + \sigma(x+\mathrm{d}x)A(x+\mathrm{d}x)=0,,
+\end{equation}
+which can be recast into
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}x}\left(\sigma(x)A(x)\right)=-f(x),.
+\end{equation}
+Using the stress relation we get
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}x}\left(E(x)A(x)u’(x)\right)=-f(x),.
+\end{equation}
+If we suppose that <span class="math notranslate nohighlight">\(E(x)=\mathrm{const.}\)</span> and <span class="math notranslate nohighlight">\(A(x)=\mathrm{const.}\)</span>, we get
+\begin{equation}
+-EAu’’(x)=f(x),,
+\end{equation}
+which is the same relation we got in the previous derivation.</p>
+</div>
+</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>First of all, we must import <code class="docutils literal notranslate"><span class="pre">fenics</span></code> library to <code class="docutils literal notranslate"><span class="pre">python</span></code> interface. Moreover, we import <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> library that is used for graph rendering. And we will also need some features of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dolfinx</span>
+<span class="kn">import</span> <span class="nn">ufl</span>
+<span class="kn">from</span> <span class="nn">mpi4py</span> <span class="k">import</span> <span class="n">MPI</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-parameters">
+<h3>Problem parameters<a class="headerlink" href="#problem-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Let us set the material parameters of the problem. Following is the table that contains Young modulus and Poisson’s ratio for some common materials.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Material</p></th>
+<th class="text-align:center head"><p>Young modulus <span class="math notranslate nohighlight">\(E\ [\mathrm{GPa}]\)</span></p></th>
+<th class="text-align:right head"><p>Poisson’s ratio <span class="math notranslate nohighlight">\(\nu\ [-]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rubber</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(0.01 - 0.1\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(0.4999\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Cork</strong></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(0.02 - 0.03\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Concrete</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(30\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(0.1 - 0.2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Steel</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(200\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(0.27 - 0.30\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>We decided to model a cork stopper, since cork material parameters justify the assumption <span class="math notranslate nohighlight">\(\nu=0\)</span> made in the governing equations. Thus, we choose appropriate dimensions of the cork stopper (radius 1 cm, length 5 cm) and some suitable magnitude of loading <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Parameters</span>
+<span class="c1"># --------------------</span>
+<span class="n">E</span> <span class="o">=</span> <span class="mf">0.025e9</span>  <span class="c1"># Young&#39;s modulus [Pa]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mf">1e-4</span>  <span class="c1"># Cross-section area of bar [m^-2]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Length of bar [m]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># Number of elements</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.03</span>  <span class="c1"># Load intensity [Pa*m^-3]</span>
+<span class="c1">#g = 0.0005 # External force [Pa*m^-2]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">0.0005</span> <span class="c1"># External force [Pa*m^-2]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geometry-of-the-problem">
+<h3>Geometry of the problem<a class="headerlink" href="#geometry-of-the-problem" title="Permalink to this headline">¶</a></h3>
+<p>Next, we define the geometry of the problem. There is always a possibility to use an external mesh defined in <em>.xml</em> file. In our case we use the predefined mesh provided directly by FEniCS. Initialization of the FEniCS object <code class="docutils literal notranslate"><span class="pre">IntervalMesh(n,</span> <span class="pre">x_1,</span> <span class="pre">x_2)</span></code> creates an equidistantly discretized one-dimensional mesh with <code class="docutils literal notranslate"><span class="pre">n</span></code> elements between the end points <code class="docutils literal notranslate"><span class="pre">x_1</span></code> and <code class="docutils literal notranslate"><span class="pre">x_2</span></code>.</p>
+<blockquote>
+<div><p>You can invoke a basic description of any function/object by <code class="docutils literal notranslate"><span class="pre">help</span></code> command. Try that for the object <code class="docutils literal notranslate"><span class="pre">IntervalMesh</span></code>.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Geometry</span>
+<span class="c1"># --------------------</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">IntervalMesh</span><span class="p">(</span><span class="n">MPI</span><span class="o">.</span><span class="n">COMM_WORLD</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">])</span>
+<span class="c1">#mesh = fe.IntervalMesh(n, 0.0, L)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can visually check the geometry of the mesh using the FEniCS <code class="docutils literal notranslate"><span class="pre">plot()</span></code> command. The plot object is then displayed by adding the pyplot command <code class="docutils literal notranslate"><span class="pre">show()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fenicsx_1D_tension_13_0.png" src="_images/fenicsx_1D_tension_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="function-spaces-definition">
+<h3>Function spaces definition<a class="headerlink" href="#function-spaces-definition" title="Permalink to this headline">¶</a></h3>
+<p>Now, we define the function space that contains the solution and test functions by initializing the object <code class="docutils literal notranslate"><span class="pre">FunctionSpace(mesh,type,deg)</span></code> with three arguments.<br />
+The first argument is the discretized domain contained in the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> variable. Second and third are the type <code class="docutils literal notranslate"><span class="pre">type</span></code> of the base functions and the order <code class="docutils literal notranslate"><span class="pre">deg</span></code> of these functions respectively.
+We will present various types of function elements later in the course. In agreement with the <a class="reference external" href="#function_space">definition</a> of the function spaces given in the first section, we define the conforming space of finite elements, that is the <em>Lagrange/Continous Galerkin</em> element (hence the acronym <code class="docutils literal notranslate"><span class="pre">CG</span></code>) of order one, in other word, piecewise linear functions.</p>
+<p>Then we initialize the test and trial functions specified by the function space as <code class="docutils literal notranslate"><span class="pre">TrialFunction</span></code> and <code class="docutils literal notranslate"><span class="pre">TestFunction</span></code> objects, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Function spaces</span>
+<span class="c1"># --------------------</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">FunctionSpace</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;CG&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">u_tr</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">TrialFunction</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">u_test</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">TestFunction</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boundary-conditions">
+<h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<p>As a next step, we specify the geometric boundary of the domain through which we apply the Dirichlet boundary condition. It is necessary to mark those entities of the mesh that constitute the boundaries <span class="math notranslate nohighlight">\(\Gamma_{\text{D}}\)</span> and <span class="math notranslate nohighlight">\(\Gamma_{\text{N}}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------</span>
+<span class="c1"># Boundary markings</span>
+<span class="c1"># ------------------------</span>
+<span class="k">def</span> <span class="nf">left</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="c1"># analogously, we could define the marking of the right boundary</span>
+<span class="k">def</span> <span class="nf">right</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the previous, <code class="docutils literal notranslate"><span class="pre">on_boundary</span></code> flag is <code class="docutils literal notranslate"><span class="pre">True</span></code> for all points that lie on the boundary of the mesh and <code class="docutils literal notranslate"><span class="pre">near(x,x0)</span></code> checks whether <code class="docutils literal notranslate"><span class="pre">x</span></code> is close to <code class="docutils literal notranslate"><span class="pre">x0</span></code> (by default, within the tolerance given by the global constant <code class="docutils literal notranslate"><span class="pre">DOLFIN_EPS</span></code>), which respectively gives the left and the right end of the beam.</p>
+<blockquote>
+<div><p>When you compare two real numbers in <code class="docutils literal notranslate"><span class="pre">python</span></code>, always use certain <strong>tolerance</strong>. Value of the tolerance depends on the size of the numbers you compare. For unit sized numbers, <code class="docutils literal notranslate"><span class="pre">DOLFIN_EPS</span> <span class="pre">=</span> <span class="pre">3e-16</span></code> is sufficient.</p>
+</div></blockquote>
+<p>Try it for yourselves. Print the outcomes e.g., of <code class="docutils literal notranslate"><span class="pre">0.1+0.1+0.1-0.3</span></code> and <code class="docutils literal notranslate"><span class="pre">100.1+100.1+100.1-300.3</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">100.1</span><span class="o">+</span><span class="mf">100.1</span><span class="o">+</span><span class="mf">100.1</span><span class="o">-</span><span class="mf">300.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.551115123125783e-17
+-5.684341886080802e-14
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is an equivalent way of marking the boundary. It employs the <code class="docutils literal notranslate"><span class="pre">MeshFunction</span></code> object that represents a numerically/Boolean valued function defined on the mesh. More precisely, the first argument in initialization can either be <code class="docutils literal notranslate"><span class="pre">‘int’</span></code>, <code class="docutils literal notranslate"><span class="pre">‘size_t’</span></code>, or <code class="docutils literal notranslate"><span class="pre">‘double’</span></code>, which denotes the integers, unsigned integers and floats, respectively. The Boolean valued function is initialized with the <code class="docutils literal notranslate"><span class="pre">‘bool’</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fdim</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">dim</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">facet_indices</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">locate_entities</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span>
+<span class="n">facet_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">facet_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">facet_markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">facet_markers</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">sorted_facets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">facet_indices</span><span class="p">)</span>
+
+<span class="n">facet_tag</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">MeshTags</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fdim</span><span class="p">,</span> <span class="n">facet_indices</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">],</span> <span class="n">facet_markers</span><span class="p">[</span><span class="n">sorted_facets</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The previous <code class="docutils literal notranslate"><span class="pre">for</span></code> loop iterates through facets of the mesh (vertices in our example) and assigns the value one to the left boundary and the value two to the right boundary of the bar.</p>
+<blockquote>
+<div><p>note: it is preferable to set some default numerical value (e.g., zero) to all the other mesh facets, this can be done either by giving the last optional argument <code class="docutils literal notranslate"><span class="pre">0</span></code> in the initialization of the <code class="docutils literal notranslate"><span class="pre">MeshFunction</span></code> object or by calling <code class="docutils literal notranslate"><span class="pre">boundary.set_all(0)</span></code> <strong>before</strong> the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p>
+</div></blockquote>
+<div class="section" id="dirichlet-boundary-conditions">
+<h4>Dirichlet boundary conditions<a class="headerlink" href="#dirichlet-boundary-conditions" title="Permalink to this headline">¶</a></h4>
+<p>Dirichlet boundary conditions are sometimes called essential, since they determine the definition of the function spaces. In FEniCS, Dirichlet boundary conditions are implemented through the object <code class="docutils literal notranslate"><span class="pre">DirichletBC</span></code> initialized with three arguments: the function space, the prescribed value at the boundary, and the corresponding subdomain specified by the previously defined <code class="docutils literal notranslate"><span class="pre">left</span></code> function (or equivalently by the <code class="docutils literal notranslate"><span class="pre">boundary</span></code> variable and its numerical value at the desired facets).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Boundary conditions</span>
+<span class="c1"># --------------------</span>
+<span class="n">boundary_dofs</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">locate_dofs_geometrical</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span>
+<span class="n">uD</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">DirichletBC</span><span class="p">(</span><span class="n">uD</span><span class="p">,</span> <span class="n">boundary_dofs</span><span class="p">)</span>
+<span class="c1"># Equivalently, using boundary variable:</span>
+<span class="c1">#bc = fe.DirichletBC(V, 0.0, boundary, 1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="neumann-boundary-conditions">
+<h4>Neumann boundary conditions<a class="headerlink" href="#neumann-boundary-conditions" title="Permalink to this headline">¶</a></h4>
+<p>In the <a class="reference external" href="#governing_eqns">formulation</a> of the problem, we also prescribed a normal force <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> at the right boundary of the domain <span class="math notranslate nohighlight">\(\Gamma_{\text{N}}\)</span>. Such boundary interactions falls into the category of Neumann boundary condition, which is sometimes denoted as natural. The natural boundary conditions are reflected directly in the weak formulation of the problem.</p>
+<p>In the <a class="reference external" href="#weak_form">weak formulation</a> above, the Neumann boundary condition appears as a term from the integration by parts formula. To include this term in our implementation of the problem, we first need to define the integrating measures that correspond to the manifolds representing the geometry of the mesh. To this end, we initialize the <code class="docutils literal notranslate"><span class="pre">Measure</span></code> object with input arguments that specify the integral type and the respective geometry to which the measure corresponds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">ufl</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="s2">&quot;ds&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">subdomain_data</span><span class="o">=</span><span class="n">facet_tag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weak-formulation">
+<h3>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this headline">¶</a></h3>
+<p>We are now ready to give the weak form of the problem. One of the very nice features of FEniCS is that the implementation closely imitates the <a class="reference external" href="#weak_form">weak formulation</a> given above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Weak form</span>
+<span class="c1"># --------------------</span>
+<span class="c1">#a = E*A*fe.inner(fe.grad(u_tr),fe.grad(u_test))*dx</span>
+<span class="c1"># One can equivalently write the bilinear form in this one-dimensional problem as</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">E</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">u_tr</span><span class="o">.</span><span class="n">dx</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">u_test</span><span class="o">.</span><span class="n">dx</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">ufl</span><span class="o">.</span><span class="n">dx</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">u_test</span><span class="o">*</span><span class="n">ufl</span><span class="o">.</span><span class="n">dx</span> <span class="o">+</span> <span class="n">g</span><span class="o">*</span><span class="n">u_test</span><span class="o">*</span><span class="n">ds</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#l=dolfinx.Constant(mesh, 0)*u_test*ufl.dx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to supply the subdomain measure <code class="docutils literal notranslate"><span class="pre">ds</span></code> with the value of the <code class="docutils literal notranslate"><span class="pre">MeshFunction</span></code> object that corresponds to the Neumann part of the boundary <span class="math notranslate nohighlight">\(\Gamma_{\text{N}}\)</span>, i.e., two.</p>
+<blockquote>
+<div><p><em>note</em>: it is possible to access individual elements of the gradient <code class="docutils literal notranslate"><span class="pre">grad</span></code> of a function <code class="docutils literal notranslate"><span class="pre">u</span></code> via <code class="docutils literal notranslate"><span class="pre">u.dx(i)</span></code>, where <code class="docutils literal notranslate"><span class="pre">i</span></code> specifies the derivative with respect to the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th coordinate and the enumeration starts with <strong>zero</strong>, do not confuse this with the measure object <code class="docutils literal notranslate"><span class="pre">dx</span></code> that specifies the integration domain</p>
+</div></blockquote>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">dot(u,v)</span></code> vs <code class="docutils literal notranslate"><span class="pre">inner(u,v)</span></code>: FEniCS makes distinction between the inner product and dot product of two elements <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">dot(u,v)</span></code> contracts (sums) over the last index of the first element and the first index of the second element, whereas <code class="docutils literal notranslate"><span class="pre">inner(u,v)</span></code> sums over all indices of the elements that must be of the same order</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>if <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code> are both vectors (rank 1 tensor), then <code class="docutils literal notranslate"><span class="pre">dot(u,v)=inner(u,v)</span></code></p></li>
+<li><p>matrix-vector multiplication <span class="math notranslate nohighlight">\(\sigma \mathbf{n}\)</span> is computed using <code class="docutils literal notranslate"><span class="pre">dot(sigma,n)</span></code></p></li>
+</ul>
+<p>Finally, we call the solver to compute the linear algebraic system generated by the finite element method. FEniCS is prompted to do that by calling the <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function supplied with three parameters: linear variational equation, function that will store the resulting approximation and the problem specific Dirichlet boundary conditions.</p>
+<p>Let us first introduce the function <code class="docutils literal notranslate"><span class="pre">u</span></code> that will contain the finite element solution. In the code environment we define the object <code class="docutils literal notranslate"><span class="pre">Function</span></code> pertaining to the function space <span class="math notranslate nohighlight">\(V\)</span>. Then we can call <code class="docutils literal notranslate"><span class="pre">solve(a==l,</span> <span class="pre">u,</span> <span class="pre">bc)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Solver</span>
+<span class="c1"># --------------------</span>
+<span class="n">problem</span> <span class="o">=</span> <span class="n">dolfinx</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">LinearProblem</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">bcs</span><span class="o">=</span><span class="p">[</span><span class="n">bc</span><span class="p">],</span> <span class="n">petsc_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ksp_type&quot;</span><span class="p">:</span> <span class="s2">&quot;preonly&quot;</span><span class="p">,</span> <span class="s2">&quot;pc_type&quot;</span><span class="p">:</span> <span class="s2">&quot;lu&quot;</span><span class="p">})</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="post-processing">
+<h2>Post processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>In the final stage of our simulation we visualize the computational results. This task is easily handled by the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library that we imported at the beginning.</p>
+<p>For many trivial problems, ours included, there is an exact solution. We can use this solution to benchmark our numerical results. The following cell introduces the exact solution and plots it next to the approximative result given by the finite element method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------</span>
+<span class="c1"># Exact solution</span>
+<span class="c1"># --------------------</span>
+<span class="n">x_ex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">u_ex</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">x_ex_i</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">E</span><span class="o">/</span><span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">g</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">x_ex_i</span><span class="o">/</span><span class="n">E</span><span class="o">/</span><span class="n">A</span> <span class="k">for</span> <span class="n">x_ex_i</span> <span class="ow">in</span> <span class="n">x_ex</span><span class="p">]</span>
+
+<span class="c1"># --------------------</span>
+<span class="c1"># Post-process</span>
+<span class="c1"># --------------------</span>
+<span class="n">fem_vals</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">compute_point_values</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">fem_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_ex</span><span class="p">,</span> <span class="n">u_ex</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x [m]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;u [m]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;FEM solution&quot;</span><span class="p">,</span><span class="s2">&quot;exact solution&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fenicsx_1D_tension_31_0.png" src="_images/fenicsx_1D_tension_31_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">Content with notebooks</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jaroslav Schmidt<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
