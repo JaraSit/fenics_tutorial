@@ -1,13 +1,12 @@
-# Welcome to your Jupyter Book
+# Welcome FEniCS tutorial book
 
-This is a small sample book to give you a feel for how book content is
-structured.
+Some text.
 
 :::{note}
-Here is a note!
+Some note!
 :::
 
-And here is a code block:
+Some code block:
 
 ```
 e = mc^2
